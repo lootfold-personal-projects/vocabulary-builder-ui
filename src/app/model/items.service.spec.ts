@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ItemsService } from './items.service';
-import { ItemsModule } from './items.module';
+import { ModelsModule } from './models.module';
 
 describe('ItemsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [],
-      imports: [ItemsModule]
+      imports: [ModelsModule]
     }).compileComponents();
   });
 
