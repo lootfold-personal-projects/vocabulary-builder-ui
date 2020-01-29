@@ -1,0 +1,17 @@
+<form (ngSubmit)="submit()">
+  <div>
+    <label for="txt_word">Word</label>
+    <input id="txt_word" type="text" required name="word" [(ngModel)]="word" />
+  </div>
+  <div>
+    <label for="txt_meaning">Meaning</label>
+    <textarea
+      id="txt_meaning"
+      type="text"
+      required
+      name="meaning"
+      [(ngModel)]="meaning"
+    ></textarea>
+  </div>
+  <button type="submit">Add</button>
+</form>

@@ -14,4 +14,8 @@ export class ItemsService {
   public getItems(): Observable<Item[]> {
     return this.client.get<Item[]>(this.URL);
   }
+
+  public addItem(newItem) {
+    return this.client.post(this.URL, newItem);
+  }
 }
