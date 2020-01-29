@@ -14,11 +14,11 @@ pipeline {
             }
         }
         
-        stage ('test') {
-            steps {
-                sh 'ng test --watch=false --browsers ChromeHeadless'
-            }
-        }
+        // stage ('test') {
+        //     steps {
+        //         sh 'ng test --watch=false --browsers ChromeHeadless'
+        //     }
+        // }
         
         stage ('sonar scan') {
             steps {
