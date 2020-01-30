@@ -1,10 +1,12 @@
 <div>
   <ul>
     <li *ngFor="let item of items">
-      {{ item.word }}
+      <a [routerLink]="['/items', item.id]">
+        {{ item.word }}
+      </a>
     </li>
   </ul>
 </div>
 <div>
-  <button routerLink="/add">Add Item</button>
+  <button routerLink="/items/add">Add Item</button>
 </div>
