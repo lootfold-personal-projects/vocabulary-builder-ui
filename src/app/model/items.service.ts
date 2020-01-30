@@ -18,4 +18,8 @@ export class ItemsService {
   public addItem(newItem) {
     return this.client.post(this.URL, newItem);
   }
+
+  public getById(id): Observable<Item> {
+    return this.client.get<Item>(`${this.URL}/${id}`);
+  }
 }

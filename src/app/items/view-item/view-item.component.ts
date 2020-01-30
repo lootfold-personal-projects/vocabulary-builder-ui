@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemsService } from 'src/app/model/items.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { Item } from 'src/app/model/item.model';
 
 @Component({
   selector: 'app-view-item',
@@ -6,10 +10,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-item.component.scss']
 })
 export class ViewItemComponent implements OnInit {
-
-  constructor() { }
+  public item: Item;
+  constructor(
+    private service: ItemsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.service.getById(id).subscribe(response => {
+      this.item = response;
+    });
   }
-
 }
