@@ -22,4 +22,8 @@ export class ItemsService {
   public getById(id): Observable<Item> {
     return this.client.get<Item>(`${this.URL}/${id}`);
   }
+
+  public deleteItem(id): Observable<Item> {
+    return this.client.delete<Item>(`${this.URL}/${id}`);
+  }
 }

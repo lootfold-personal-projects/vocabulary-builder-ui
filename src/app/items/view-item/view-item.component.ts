@@ -23,4 +23,16 @@ export class ViewItemComponent implements OnInit {
       this.item = response;
     });
   }
+
+  delete(id) {
+    this.service.deleteItem(id).subscribe(
+      resp => {
+        console.log('Deleted', resp);
+        this.router.navigateByUrl('/items');
+      },
+      err => {
+        console.error(err);
+      }
+    );
+  }
 }

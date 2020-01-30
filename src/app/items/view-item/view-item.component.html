@@ -6,4 +6,5 @@
   <label for="txt_meaning">Meaning: </label>
   <input type="text" [value]="item.word" readonly />
 </div>
-<button type="menu" routerLink="/items">Back</button>
+<button type="button" routerLink="/items">Back</button>
+<button type="button" (click)="delete(item.id)">Delete</button>
