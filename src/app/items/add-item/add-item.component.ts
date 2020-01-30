@@ -17,14 +17,11 @@ export class AddItemComponent implements OnInit {
 
   submit() {
     console.log(`${this.word} | ${this.meaning}`);
-    this.service.addItem({ word: this.word, meaning: this.meaning }).subscribe(
-      response => {
+    this.service
+      .addItem({ word: this.word, meaning: this.meaning })
+      .subscribe(response => {
         console.log(response);
         this.router.navigate(['/items']);
-      },
-      error => {
-        console.error(error);
-      }
-    );
+      });
   }
 }
