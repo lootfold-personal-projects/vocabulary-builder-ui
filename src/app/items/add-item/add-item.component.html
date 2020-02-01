@@ -1,18 +1,32 @@
-<form (ngSubmit)="submit()">
-  <div>
-    <label for="txt_word">Word</label>
-    <input id="txt_word" type="text" required name="word" [(ngModel)]="word" />
+<div class="container pt-3">
+  <div class="w-75 mx-auto">
+    <form (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="txt_word">Word:</label>
+        <input
+          class="form-control"
+          id="txt_word"
+          type="text"
+          required
+          name="word"
+          [(ngModel)]="word"
+        />
+      </div>
+      <div class="form-group">
+        <label for="txt_meaning">Meaning:</label>
+        <textarea
+          class="form-control"
+          id="txt_meaning"
+          type="text"
+          required
+          name="meaning"
+          [(ngModel)]="meaning"
+        ></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Add</button>
+      <button class="btn btn-seconsary ml-2" type="reset" routerLink="/items">
+        Back
+      </button>
+    </form>
   </div>
-  <div>
-    <label for="txt_meaning">Meaning</label>
-    <textarea
-      id="txt_meaning"
-      type="text"
-      required
-      name="meaning"
-      [(ngModel)]="meaning"
-    ></textarea>
-  </div>
-  <button type="submit">Add</button>
-  <button type="reset" routerLink="/items">Back</button>
-</form>
+</div>
