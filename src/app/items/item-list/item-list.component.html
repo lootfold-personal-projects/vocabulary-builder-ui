@@ -1,12 +1,16 @@
-<div>
-  <ul>
-    <li *ngFor="let item of items">
-      <a [routerLink]="['/items', item.id]">
-        {{ item.word }}
-      </a>
-    </li>
-  </ul>
-</div>
-<div>
-  <button routerLink="/items/add">Add Item</button>
+<div class="container pt-3">
+  <div class="w-75 mx-auto">
+    <ul class="list-group">
+      <li *ngFor="let item of items" class="list-group-item">
+        <a [routerLink]="['/items', item.id]">
+          {{ item.word }}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="w-75 mx-auto mt-2">
+    <button class="btn btn-primary" routerLink="/items/add">
+      Add Item
+    </button>
+  </div>
 </div>
