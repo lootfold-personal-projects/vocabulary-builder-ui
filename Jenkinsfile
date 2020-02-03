@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('cleanup') {
             steps {
-                sh 'rm -f ui.zip'
+                sh 'rm -f ~/artifacts/vocabulary-builder/ui/ui.zip'
             }
         }
         
