@@ -2,12 +2,6 @@ pipeline {
     agent any
     
     stages {
-        stage ('cleanup') {
-            steps {
-                sh 'rm -f ~/artifacts/vocabulary-builder/ui/ui.zip'
-            }
-        }
-        
         stage ('restore') {
             steps {
                 sh 'npm install'
@@ -35,6 +29,7 @@ pipeline {
         stage ('publish artifact') {
             steps {
                 sh 'zip ui.zip dist/ui/*'
+                sh 'rm -f ~/artifacts/vocabulary-builder/ui/ui.zip'
                 sh 'mv ui.zip ~/artifacts/vocabulary-builder/ui/'
             }
         }
