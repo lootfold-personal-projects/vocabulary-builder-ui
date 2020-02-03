@@ -2,6 +2,12 @@ pipeline {
     agent any
     
     stages {
+        stage ('cleanup') {
+            steps {
+                sh 'rm -f ui.zip'
+            }
+        }
+        
         stage ('restore') {
             steps {
                 sh 'npm install'
@@ -23,6 +29,13 @@ pipeline {
         stage ('sonar scan') {
             steps {
                 sh 'sonar-scanner'
+            }
+        }
+        
+        stage ('publish artifact') {
+            steps {
+                sh 'zip ui.zip dist/ui/*'
+                sh 'mv ui.zip ~/artifacts/vocabulary-builder/ui/'
             }
         }
     }
