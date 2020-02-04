@@ -39,5 +39,9 @@ pipeline {
         success {
             build job: 'vocabulary-builder/vocabulary-builder-deployment/master', propagate: false, wait: false
         }
+
+        always {
+            sh 'rm -rf dist'
+        }
     }
 }
