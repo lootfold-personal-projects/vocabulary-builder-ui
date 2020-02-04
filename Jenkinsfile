@@ -37,7 +37,7 @@ pipeline {
 
     post {
         success {
-            build job: 'vocabulary-builder/vocabulary-builder-deployment/master', propagate: false, wait: false
+            build job: 'vocabulary-builder/vocabulary-builder-deployment/master', propagate: false, quietPeriod: 120, wait: false
         }
 
         always {
