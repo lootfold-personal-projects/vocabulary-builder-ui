@@ -10,6 +10,7 @@ import { AddItemComponent } from './items/add-item/add-item.component';
 import { ViewItemComponent } from './items/view-item/view-item.component';
 import { ItemsService } from './items/items.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,13 @@ import { HttpClientModule } from '@angular/common/http';
     AddItemComponent,
     ViewItemComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    NgxSpinnerModule
+  ],
   providers: [ItemsService],
   bootstrap: [AppComponent]
 })
