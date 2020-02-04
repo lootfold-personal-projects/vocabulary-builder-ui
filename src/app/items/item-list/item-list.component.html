@@ -2,14 +2,14 @@
   <div class="w-75 mx-auto">
     <ul class="list-group">
       <li *ngFor="let item of items" class="list-group-item">
-        <a [routerLink]="['/', item.id]">
+        <a [routerLink]="['/items', item.id]">
           {{ item.word }}
         </a>
       </li>
     </ul>
   </div>
   <div class="w-75 mx-auto mt-2">
-    <button class="btn btn-primary" routerLink="/add">
+    <button class="btn btn-primary" routerLink="/items/add">
       Add Item
     </button>
   </div>

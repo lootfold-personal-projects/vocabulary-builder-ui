@@ -5,9 +5,10 @@ import { AddItemComponent } from './items/add-item/add-item.component';
 import { ViewItemComponent } from './items/view-item/view-item.component';
 
 const routes: Routes = [
-  { path: '', component: ItemListComponent },
-  { path: 'add', component: AddItemComponent },
-  { path: ':id', component: ViewItemComponent }
+  { path: '', redirectTo: 'items', pathMatch: 'full' },
+  { path: 'items', component: ItemListComponent },
+  { path: 'items/add', component: AddItemComponent },
+  { path: 'items/:id', component: ViewItemComponent }
 ];
 
 @NgModule({

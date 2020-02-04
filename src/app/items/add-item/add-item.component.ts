@@ -25,7 +25,7 @@ export class AddItemComponent implements OnInit {
     this.service.addItem({ word: this.word, meaning: this.meaning }).subscribe(
       response => {
         console.log(response);
-        this.router.navigate(['/']);
+        this.router.navigate(['/items']);
         this.spinner.hide();
       },
       error => {
