@@ -28,7 +28,7 @@ export class ViewItemComponent implements OnInit {
     this.service.deleteItem(id).subscribe(
       resp => {
         console.log('Deleted', resp);
-        this.router.navigateByUrl('/items');
+        this.router.navigateByUrl('/');
       },
       err => {
         console.error(err);
