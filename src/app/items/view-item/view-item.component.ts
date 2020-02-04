@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from 'src/app/model/items.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { Item } from 'src/app/model/item.model';
+import { Item } from '../item';
 
 @Component({
   selector: 'app-view-item',
