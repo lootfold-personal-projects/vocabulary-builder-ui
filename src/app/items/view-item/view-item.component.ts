@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemsService } from 'src/app/model/items.service';
+import { ItemsService } from 'src/app/items/items.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Item } from '../item';
 

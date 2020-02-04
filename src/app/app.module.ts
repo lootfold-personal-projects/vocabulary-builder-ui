@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ItemListComponent } from './items/item-list/item-list.component';
 import { AddItemComponent } from './items/add-item/add-item.component';
 import { ViewItemComponent } from './items/view-item/view-item.component';
-import { ItemsService } from './model/items.service';
+import { ItemsService } from './items/items.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
