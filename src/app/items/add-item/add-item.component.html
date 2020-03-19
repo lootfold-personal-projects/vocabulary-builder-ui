@@ -1,15 +1,17 @@
 <div class="container pt-3">
   <div class="w-75 mx-auto">
-    <form (ngSubmit)="submit()">
+    <form novalidate #form="ngForm" (ngSubmit)="submit(form)">
       <div class="form-group">
         <label for="txt_word">Word:</label>
         <input
+          name="word"
           class="form-control"
           id="txt_word"
           type="text"
           required
-          name="word"
-          [(ngModel)]="word"
+          minlength="3"
+          [(ngModel)]="newItem.word"
+          #word="ngModel"
         />
       </div>
       <div class="form-group">
@@ -20,11 +22,22 @@
           type="text"
           required
           name="meaning"
-          [(ngModel)]="meaning"
+          [(ngModel)]="newItem.meaning"
+          #meaning="ngModel"
         ></textarea>
       </div>
-      <button class="btn btn-primary" type="submit">Add</button>
-      <button class="btn btn-seconsary ml-2" type="reset" routerLink="/items">
+      <button
+        class="btn"
+        [ngClass]="{
+          'btn-primary': form.valid,
+          'btn-secondary': form.invalid
+        }"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        Add
+      </button>
+      <button class="btn btn-secondary ml-2" type="reset" routerLink="/items">
         Back
       </button>
     </form>

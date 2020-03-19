@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ItemsService } from 'src/app/items/items.service';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Item } from '../item';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-item',
@@ -9,8 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./add-item.component.scss']
 })
 export class AddItemComponent implements OnInit {
-  public word: string;
-  public meaning: string;
+  public newItem: Item = {} as any;
 
   constructor(
     private service: ItemsService,
@@ -20,18 +21,20 @@ export class AddItemComponent implements OnInit {
 
   ngOnInit() {}
 
-  submit() {
-    this.spinner.show();
-    this.service.addItem({ word: this.word, meaning: this.meaning }).subscribe(
-      response => {
-        console.log(response);
-        this.router.navigate(['/items']);
-        this.spinner.hide();
-      },
-      error => {
-        console.error(error);
-        this.spinner.hide();
-      }
-    );
+  submit(form: NgForm) {
+    if (form.valid) {
+      this.spinner.show();
+      this.service.addItem(this.newItem).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/items']);
+          this.spinner.hide();
+        },
+        error => {
+          console.error(error);
+          this.spinner.hide();
+        }
+      );
+    }
   }
 }
