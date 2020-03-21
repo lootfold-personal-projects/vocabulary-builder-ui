@@ -18,7 +18,7 @@ export class ItemListComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show();
-    this.service.getItems().subscribe(
+    this.service.getItems(0).subscribe(
       response => {
         this.items = response && response;
         this.spinner.hide();

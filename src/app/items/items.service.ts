@@ -11,8 +11,8 @@ export class ItemsService {
 
   private URL = '/api/items';
 
-  public getItems(): Observable<Item[]> {
-    return this.client.get<Item[]>(this.URL);
+  public getItems(offset): Observable<Item[]> {
+    return this.client.get<Item[]>(`${this.URL}?offset=${offset}`);
   }
 
   public addItem(newItem) {
