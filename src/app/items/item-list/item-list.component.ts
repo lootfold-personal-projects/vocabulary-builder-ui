@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemsService } from 'src/app/items/items.service';
 import { Item } from '../item';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-item-list',
@@ -11,7 +12,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class ItemListComponent implements OnInit {
   constructor(
     private service: ItemsService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {}
 
   public items: Item[];
@@ -29,8 +31,8 @@ export class ItemListComponent implements OnInit {
         this.spinner.hide();
       },
       error => {
-        console.error(error);
         this.spinner.hide();
+        this.toastr.error('Something went wrong :(');
       }
     );
   }

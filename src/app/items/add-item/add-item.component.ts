@@ -27,8 +27,8 @@ export class AddItemComponent implements OnInit {
     if (form.valid) {
       this.spinner.show();
       this.service.addItem(this.newItem).subscribe(
-        response => {
-          console.log(response);
+        (response: Response) => {
+          this.toastr.success('New word added successfully.');
           this.router.navigate(['/items']);
           this.spinner.hide();
         },

@@ -3,6 +3,7 @@ import { ItemsService } from 'src/app/items/items.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Item } from '../item';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-view-item',
@@ -15,7 +16,8 @@ export class ViewItemComponent implements OnInit {
     private service: ItemsService,
     private route: ActivatedRoute,
     private router: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -37,11 +39,12 @@ export class ViewItemComponent implements OnInit {
     this.spinner.show();
     this.service.deleteItem(id).subscribe(
       resp => {
-        console.log('Deleted', resp);
+        this.toastr.success('Word removed successfully.');
         this.router.navigateByUrl('/items');
         this.spinner.hide();
       },
       err => {
+        this.toastr.error('Something went wrong :(');
         console.error(err);
         this.spinner.hide();
       }
