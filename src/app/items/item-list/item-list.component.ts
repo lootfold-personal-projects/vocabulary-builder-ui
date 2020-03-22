@@ -15,10 +15,15 @@ export class ItemListComponent implements OnInit {
   ) {}
 
   public items: Item[];
+  public offset = 0;
 
   ngOnInit() {
+    this.getItems();
+  }
+
+  private getItems() {
     this.spinner.show();
-    this.service.getItems(0).subscribe(
+    this.service.getItems(this.offset).subscribe(
       response => {
         this.items = response && response;
         this.spinner.hide();
@@ -28,5 +33,15 @@ export class ItemListComponent implements OnInit {
         this.spinner.hide();
       }
     );
+  }
+
+  previous(): void {
+    this.offset--;
+    this.getItems();
+  }
+
+  next(): void {
+    this.offset++;
+    this.getItems();
   }
 }

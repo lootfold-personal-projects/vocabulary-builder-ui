@@ -1,5 +1,16 @@
 <div class="container pt-3">
-  <div class="w-75 mx-auto">
+  <div class="w-75 mx-auto d-flex flex-row">
+    <div class="w-50 d-flex justify-content-start">
+      <button class="btn btn-light" (click)="previous()">
+        Previous
+      </button>
+    </div>
+    <div class="w-50 d-flex justify-content-end">
+      <button class="btn btn-light" (click)="next()">Next</button>
+    </div>
+  </div>
+  <div></div>
+  <div class="w-75 mx-auto pt-3">
     <ul class="list-group">
       <li *ngFor="let item of items" class="list-group-item">
         <a [routerLink]="['/items', item.id]">
@@ -8,7 +19,7 @@
       </li>
     </ul>
   </div>
-  <div class="w-75 mx-auto mt-2">
+  <div class="w-75 mx-auto mt-3">
     <button class="btn btn-primary" routerLink="/items/add">
       Add Item
     </button>
