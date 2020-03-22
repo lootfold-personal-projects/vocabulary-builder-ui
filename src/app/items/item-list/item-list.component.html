@@ -11,7 +11,9 @@
       </p>
     </div>
     <div class="w-25 d-flex justify-content-end">
-      <button class="btn btn-light" (click)="next()">Next</button>
+      <button class="btn btn-light" (click)="next()" [disabled]="offset === 0">
+        Next
+      </button>
     </div>
   </div>
   <div></div>
