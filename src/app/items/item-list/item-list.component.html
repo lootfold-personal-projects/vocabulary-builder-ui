@@ -1,11 +1,16 @@
 <div class="container pt-3">
   <div class="w-75 mx-auto d-flex flex-row">
-    <div class="w-50 d-flex justify-content-start">
+    <div class="w-25 d-flex justify-content-start">
       <button class="btn btn-light" (click)="previous()">
         Previous
       </button>
     </div>
-    <div class="w-50 d-flex justify-content-end">
+    <div class="w-50 d-flex justify-content-center">
+      <p class="navbar-text">
+        {{ dateRange }}
+      </p>
+    </div>
+    <div class="w-25 d-flex justify-content-end">
       <button class="btn btn-light" (click)="next()">Next</button>
     </div>
   </div>

@@ -18,6 +18,7 @@ export class ItemListComponent implements OnInit {
 
   public items: Item[];
   public offset = 0;
+  public dateRange: string;
 
   ngOnInit() {
     this.getItems();
@@ -27,7 +28,8 @@ export class ItemListComponent implements OnInit {
     this.spinner.show();
     this.service.getItems(this.offset).subscribe(
       response => {
-        this.items = response && response;
+        this.items = response && response.items;
+        this.dateRange = response && response.dateRange;
         this.spinner.hide();
       },
       error => {

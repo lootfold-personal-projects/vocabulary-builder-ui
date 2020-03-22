@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Item } from './item';
+import { ItemsDto } from './items-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class ItemsService {
 
   private URL = '/api/items';
 
-  public getItems(offset): Observable<Item[]> {
-    return this.client.get<Item[]>(`${this.URL}?offset=${offset}`);
+  public getItems(offset): Observable<ItemsDto> {
+    return this.client.get<ItemsDto>(`${this.URL}?offset=${offset}`);
   }
 
   public addItem(newItem) {
