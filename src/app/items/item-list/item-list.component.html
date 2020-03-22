@@ -16,7 +16,10 @@
   </div>
   <div></div>
   <div class="w-75 mx-auto pt-3">
-    <ul class="list-group">
+    <p *ngIf="!(items && items.length)" class="navbar-text mx-auto pl-3">
+      So empty...
+    </p>
+    <ul *ngIf="items && items.length" class="list-group">
       <li *ngFor="let item of items" class="list-group-item">
         <a [routerLink]="['/items', item.id]">
           {{ item.word }}
